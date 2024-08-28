@@ -2,7 +2,7 @@ import pandas as pd
 import requests
 import os
 
-path = "./process_data/lrad/"
+path = "./data/lrad/"
 files = os.listdir(path)
 
 headers = {

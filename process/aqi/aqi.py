@@ -22,10 +22,12 @@ for file in files:
                     if row['type'] == 'AQI':
                          aqi.loc[len(aqi)] =[timestamp, city, value]
 
-    print(file)
+    print(file + "已经写入完成！")
     
 df = pd.read_csv('./city/province.csv')
 
 aqi = pd.merge(aqi,df, how='left',on='city').dropna()
 
-aqi.to_csv('./process_data/pm/aqi.csv', index=False)
+aqi.to_csv('./data/aqi/aqi.csv', index=False)
+
+print("所有文件已完成写入！")

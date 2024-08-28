@@ -2,7 +2,7 @@ import pandas as pd
 import requests
 import os
 
-path = "./process_data/aqi/"
+path = "./data/aqi/"
 files = os.listdir(path)
 
 headers = {

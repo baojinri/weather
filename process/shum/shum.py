@@ -22,7 +22,7 @@ for file in files:
     result_df = merged_df[['province', 'city', 'time', 'shum']]
     result_df['time'] = result_df['time'].astype(int)
 
-    result_df.to_csv("./process_data/shum/{}_temp.csv".format(file_year), index=False)
+    result_df.to_csv("./data/shum/shum.csv", index=False)
                 
     print(file + "已经写入完成！")
 
