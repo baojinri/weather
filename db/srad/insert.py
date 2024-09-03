@@ -20,12 +20,9 @@ ENGINE=Analytic
 (enable_ttl="false", update_mode="APPEND")
 '''
 
-requests.post('http://ceresdb-daily.alibaba.net:5441/sql', headers= headers, data=data)
+requests.post('http://localhost:5440/sql', headers= headers, data=data)
 
 for file in files:
-    if file != '2018_temp.csv':
-       print(file)
-       continue
     df = pd.read_csv(path+file)
 
     for index, row in df.iterrows():
@@ -33,6 +30,6 @@ for file in files:
       INSERT INTO srad (t, province, city, value)
                 VALUES ({row['time']}, "{row['province']}", "{row['city']}", {row['srad']})
       '''
-      requests.post('http://ceresdb-daily.alibaba.net:5441/sql', headers=headers, data=insert_query)
+      requests.post('http://localhost:5440/sql', headers=headers, data=insert_query)
 
     print(file+ "数据插入完成")
